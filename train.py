@@ -405,7 +405,7 @@ def train():
             best_psnr = checkpoint.get('best_psnr', 0)
             best_psnr_epoch = checkpoint.get('best_psnr_epoch', 1)
 
-        print(f"✅ Resumed from epoch {start_epoch - 1}")
+        print(f"Resumed from epoch {start_epoch - 1}")
 
     trainloader, testloader = accelerator.prepare(trainloader, testloader)
     model, optimizer_b, scheduler_b = accelerator.prepare(model, optimizer_b, scheduler_b)
@@ -479,7 +479,7 @@ def train():
             else:
                 epochs_no_improve += 1
                 if epochs_no_improve >= early_stopping_patience:
-                    print(f"⏹️ Early stopping triggered at epoch {epoch}")
+                    print(f"Early stopping triggered at epoch {epoch}")
                     break
 
             if accelerator.is_local_main_process:
